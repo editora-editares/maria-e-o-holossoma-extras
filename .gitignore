@@ -1,0 +1,8 @@
+# intermediarios do pdflatex (o build usa diretorio temporario, mas
+# rodar pandoc na mao deixa estes para tras)
+*.aux
+*.log
+*.out
+
+# permissoes pessoais da sessao; as do projeto vao em .claude/settings.json
+.claude/settings.local.json

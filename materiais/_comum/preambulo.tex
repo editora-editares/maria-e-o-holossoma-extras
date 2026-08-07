@@ -1,0 +1,98 @@
+% =====================================================================
+%  materiais/_comum/preambulo.tex
+%  Preambulo LaTeX das saidas em PDF. Injetado por pandoc com -H.
+% =====================================================================
+%  MVP. NAO reproduz o visual do livro de proposito: a pauta ciano de
+%  25% e a FR Cursive de ../mary-livro/config/pauta.tex ficaram fora
+%  desta etapa. O que se testa aqui e o CONTEUDO e o fluxo de
+%  producao, nao a diagramacao final.
+% ---------------------------------------------------------------------
+
+\usepackage[a4paper,top=18mm,bottom=16mm,left=20mm,right=20mm]{geometry}
+\usepackage{xcolor}
+
+%  Century Schoolbook, a mesma familia do livro. Custa zero (ja esta
+%  instalada) e e a fonte desenhada para livro escolar infantil.
+\usepackage{tgschola}
+
+%  Sem folio: sao folhas soltas para imprimir e preencher, nao um
+%  caderno paginado. Numero de pagina numa ficha de uma folha e ruido.
+\pagestyle{empty}
+
+% ---------------------------------------------------------------------
+%  \linhas{n}  --  n fios para a crianca escrever a mao
+% ---------------------------------------------------------------------
+%  PASSO DE 8mm, e nao os 19pt (6,7mm) da pauta do livro.
+%
+%  Aquele passo foi calibrado para a FR Cursive COMPOSTA a 13pt, que e
+%  letra de imprensa imitando mao. Aqui quem escreve e uma crianca de
+%  ~9 anos com lapis: caderno de pauta escolar brasileiro trabalha
+%  entre 8 e 10mm. 6,7mm seria apertado demais.
+%
+%  TOM: preto a 15%. O README exige legibilidade em preto e branco, e
+%  15% de K sai em qualquer laser domestica. Abaixo de ~10% some.
+\newlength{\LinhaPasso}\setlength{\LinhaPasso}{8mm}
+\newlength{\LinhaEsp}\setlength{\LinhaEsp}{0.4pt}
+\newcommand{\LinhaTom}{black!15}
+
+%  O VAO VEM ANTES DO FIO, nao depois.
+%
+%  Nao e detalhe de arrumacao: quem escreve a mao poe a letra EM CIMA
+%  do fio, ou seja, o espaco util de uma linha e o que esta ACIMA dela.
+%  Com o vao depois, cada bloco terminava com 8mm de papel morto e a
+%  ficha estourava para uma terceira pagina -- eram ~6mm perdidos
+%  vezes sete blocos.
+\newcommand{\linhas}[1]{%
+  \par\nobreak
+  \begingroup
+    \setlength{\parskip}{0pt}%
+    \setlength{\parindent}{0pt}%
+    \count255=0
+    \loop\ifnum\count255<#1
+      %  \penalty10000 -- o bloco de linhas e INDIVISIVEL.
+      %
+      %  Espaco para ESCREVER partido no meio deixa de servir: a
+      %  crianca escreve as duas primeiras linhas, vira a folha e nao
+      %  consegue mais reler o que acabou de escrever. E o mesmo
+      %  raciocinio do \diariovazio de ../mary-livro/config/blocos.tex.
+      %  Sem isto, o bloco de 3 linhas do campo "o que eu imaginava"
+      %  saia 2 numa pagina e 1 na outra.
+      \ifnum\count255>0 \penalty10000 \fi
+      \vspace{\dimexpr\LinhaPasso-\LinhaEsp\relax}%
+      %  \nointerlineskip e OBRIGATORIO, nao arrumacao.
+      %
+      %  \rule...\par compoe um PARAGRAFO, e entre paragrafos o TeX
+      %  insere cola de entrelinha do tamanho de \baselineskip. A 11pt
+      %  isso e 13,2pt somados a CADA fio: o passo real virava 36pt em
+      %  vez dos 22,7pt (8mm) pedidos, e a ficha estourava de 2 para 3
+      %  paginas. \nointerlineskip zera \prevdepth e a cola nao entra.
+      %
+      %  Medido: bloco de 3 fios custava 124pt; passou a custar 84pt.
+      \nointerlineskip
+      \noindent{\color{\LinhaTom}\rule{\linewidth}{\LinhaEsp}}\par
+      \advance\count255 by 1
+    \repeat
+  \endgroup
+  \par}
+
+% ---------------------------------------------------------------------
+%  \moldura{altura}  --  retangulo vazio, para desenhar dentro
+% ---------------------------------------------------------------------
+%  Sem titulo e sem legenda: a ficha n. 02 pede "um espaco embaixo,
+%  SEM TITULO, para desenhar". Rotular o espaco ja diria o que
+%  desenhar, e a regra e que a pergunta nunca contenha a resposta.
+\newcommand{\moldura}[1]{%
+  \par\nobreak\vspace{2mm}%
+  \noindent{\color{\LinhaTom}\framebox[\linewidth][c]{\rule{0pt}{#1}}}%
+  \par}
+
+% ---------------------------------------------------------------------
+%  Titulos compactos: cada milimetro conta para a ficha caber em uma
+%  folha.
+% ---------------------------------------------------------------------
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{2mm}{1mm}
+\titlespacing*{\subsection}{0pt}{3mm}{1mm}
+\titleformat{\subsection}{\normalfont\large\bfseries}{}{0pt}{}
+\setlength{\parskip}{1mm}
+\setlength{\parindent}{0pt}
