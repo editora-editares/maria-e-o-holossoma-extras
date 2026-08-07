@@ -67,9 +67,9 @@ ficha. Não foi apagada quando depois apareceu alguma coisa, e não foi apagada
 por ser um resultado sem graça. Uma ficha em que não aconteceu nada continua
 sendo uma ficha preenchida, e vai para a pasta junto com as outras.
 
-**A Maria escreveu o que imaginava, e não bateu.** Ela
-achou que ia ser um superpoder; o que sentiu foi "bem fraquinho". Ficou
-escrito assim mesmo. É a comparação entre as duas coisas que faz a ficha
+**A Maria escreveu o que imaginava, e não bateu.** Ela achou que ia ser um
+superpoder; o que sentiu foram sensações "bem fraquinhas". Ficou escrito
+assim mesmo. É a comparação entre as duas coisas que faz a ficha
 valer alguma coisa — se as duas fossem sempre iguais, não haveria nada a
 descobrir.
 
@@ -77,7 +77,7 @@ descobrir.
 
 **De onde vem cada frase.** Todas as aspas saem do capítulo *Mão na massa*,
 na parte do energossoma. A única linha que não é citação literal é a de
-"quem estava junto": o livro não diz, mas a Maria está sozinha no quarto
+*quem estava junto*: o livro não diz, mas a Maria está sozinha no quarto
 quando faz as técnicas.
 
 Este experimento em particular é o de bioenergia. Antes de fazê-lo com uma

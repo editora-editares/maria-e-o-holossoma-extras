@@ -41,7 +41,7 @@ fazendo o *seu* experimento.
 Se ela travar de vez, a única ajuda é sobre a **forma**, nunca sobre o
 assunto:
 
-> "Isso dá pra descobrir fazendo alguma coisa, ou só perguntando pra alguém?"
+*"Isso dá pra descobrir fazendo alguma coisa, ou só perguntando pra alguém?"*
 
 **2. Não use a ficha preenchida como gabarito.**
 
