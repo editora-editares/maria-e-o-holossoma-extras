@@ -187,7 +187,10 @@ Não há suíte de testes. O que existe são checagens de fidelidade, todas via
 grep -rnE '\bp\. ?[0-9]|página [0-9]|pág\.' README.md docs/ ideias/ \
      --include='*.md' materiais/
 
-# Toda citação entre aspas tem de existir no fonte do livro
+# Toda citação literal dos materiais existe no fonte do livro
+python3 tools/conferir-citacoes.py          # sai 1 se alguma falhar
+
+# Conferência avulsa de um trecho
 grep -rF "trecho citado" ../mary-livro/chapters ../mary-livro/backmatter
 
 **Cuidado com o `~` ao conferir citação.** O fonte do livro usa espaço
