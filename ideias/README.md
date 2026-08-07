@@ -39,8 +39,8 @@ mãos, Diário de Emoções, Diário das Projeções e o experimento da gratidã
 | | Ficha | Veículo | Objetivo |
 |---|---|---|---|
 | 01 | [Baralho do Filtro Pessoal](crianca-e-mediador/01-baralho-do-filtro-pessoal.md) | mentalsoma | decidir antes de agir e nomear quem a decisão afeta |
-| 02 | [Minha ficha de experimento](crianca-e-mediador/02-minha-ficha-de-experimento.md) | todos | aprender a estrutura do experimento antes do conteúdo |
-| 03 | [Água e areia](crianca-e-mediador/03-agua-e-areia.md) | todos | escrever a previsão antes de ver o resultado |
+| 02 | [Minha ficha de experimento](crianca-e-mediador/02-minha-ficha-de-experimento.md) — [**material produzido**](../materiais/minha-ficha-de-experimento/) | todos | aprender a estrutura do experimento antes do conteúdo |
+| 03 | [Água e areia](crianca-e-mediador/03-agua-e-areia.md) — [**material produzido**](../materiais/agua-e-areia/) | todos | escrever a previsão antes de ver o resultado |
 | 04 | [Piquenique dos cinco sentidos](crianca-e-mediador/04-piquenique-dos-cinco-sentidos.md) | soma | testar se o sentido melhora com atenção dirigida |
 | 05 | [Gratidão que vira ação](crianca-e-mediador/05-gratidao-que-vira-acao.md) | mentalsoma | converter o agradecimento em gesto concreto |
 | 06 | [A bateria do energossoma](crianca-e-mediador/06-a-bateria-do-energossoma.md) | energossoma | correlacionar energia com hábitos observáveis |
@@ -65,9 +65,9 @@ mãos, Diário de Emoções, Diário das Projeções e o experimento da gratidã
 
 | | Ficha | Objetivo |
 |---|---|---|
-| 18 | ["Meu filho falou disso na escola"](pais-e-educadores/18-meu-filho-falou-disso-na-escola.md) | sustentar o respeito à divergência sem desautorizar nem armar |
-| 19 | [O que o amparador não é](pais-e-educadores/19-o-que-o-amparador-nao-e.md) | evitar a leitura devocional do personagem Antônio |
-| 20 | [Conduzir sem induzir](pais-e-educadores/20-conduzir-sem-induzir.md) | proteger a validade do autoexperimento e o bem-estar da criança |
+| 18 | ["Meu filho falou disso na escola"](pais-e-educadores/18-meu-filho-falou-disso-na-escola.md) — [**material produzido**](../materiais/meu-filho-falou-disso-na-escola/) | sustentar o respeito à divergência sem desautorizar nem armar |
+| 19 | [O que o amparador não é](pais-e-educadores/19-o-que-o-amparador-nao-e.md) — [**material produzido**](../materiais/o-que-o-amparador-nao-e/) | evitar a leitura devocional do personagem Antônio |
+| 20 | [Conduzir sem induzir](pais-e-educadores/20-conduzir-sem-induzir.md) — [**material produzido**](../materiais/conduzir-sem-induzir/) | proteger a validade do autoexperimento e o bem-estar da criança |
 
 **A ficha nº 20 é pré-requisito** para as de nº 06, 07, 14 e 15. As demais
 podem ser feitas em qualquer ordem, exceto a nº 12, que depende de umas dez

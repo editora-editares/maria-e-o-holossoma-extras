@@ -35,8 +35,8 @@ que fica não é sobre discrição: é sobre esconder o que pensa.
 
 **Erro 2 — armar.** Dar à criança argumentos melhores para a próxima
 discussão. Isso transforma a divergência em disputa e é exatamente o que
-Antônio pede que não se faça: *"não podemos querer convencer ninguém, não
-precisamos brigar, só conversar e compartilhar nossa forma de pensar"*.
+Antônio pede que não se faça: *"Não podemos querer convencer ninguém, não
+precisamos brigar, só conversar e compartilhar nossa forma de pensar, ok?"*
 
 ## O roteiro
 
