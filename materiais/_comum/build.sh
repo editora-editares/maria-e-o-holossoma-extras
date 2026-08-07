@@ -15,6 +15,24 @@
 # ---------------------------------------------------------------------
 set -euo pipefail
 
+# ---------------------------------------------------------------------
+#  Saida determinista
+# ---------------------------------------------------------------------
+#  Sem isto, pdflatex e pandoc carimbam a hora corrente dentro do .pdf
+#  e do .docx. O conteudo sai identico, mas os BYTES nao -- e como os
+#  gerados sao commitados, cada build sujava os 22 arquivos de uma vez
+#  com ruido puro, enchendo o historico de blob binario que so difere
+#  no relogio.
+#
+#  Data FIXA, e nao a do ultimo commit: com a do commit, o proximo
+#  build depois de commitar ja daria bytes diferentes de novo, que e
+#  exatamente o problema que se quer evitar.
+#
+#  2026-01-01 00:00:00 UTC. O valor nao significa nada -- so precisa
+#  nao mudar.
+export SOURCE_DATE_EPOCH=1767225600
+export FORCE_SOURCE_DATE=1
+
 RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 COMUM="$RAIZ/materiais/_comum"
 TMP="$(mktemp -d)"
