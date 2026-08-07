@@ -41,11 +41,11 @@ mãos, Diário de Emoções, Diário das Projeções e o experimento da gratidã
 | 01 | [Baralho do Filtro Pessoal](crianca-e-mediador/01-baralho-do-filtro-pessoal.md) | mentalsoma | decidir antes de agir e nomear quem a decisão afeta |
 | 02 | [Minha ficha de experimento](crianca-e-mediador/02-minha-ficha-de-experimento.md) — [**material produzido**](../materiais/minha-ficha-de-experimento/) | todos | aprender a estrutura do experimento antes do conteúdo |
 | 03 | [Água e areia](crianca-e-mediador/03-agua-e-areia.md) — [**material produzido**](../materiais/agua-e-areia/) | todos | escrever a previsão antes de ver o resultado |
-| 04 | [Piquenique dos cinco sentidos](crianca-e-mediador/04-piquenique-dos-cinco-sentidos.md) | soma | testar se o sentido melhora com atenção dirigida |
+| 04 | [Piquenique dos cinco sentidos](crianca-e-mediador/04-piquenique-dos-cinco-sentidos.md) — [**material produzido**](../materiais/piquenique-dos-cinco-sentidos/) | soma | testar se o sentido melhora com atenção dirigida |
 | 05 | [Gratidão que vira ação](crianca-e-mediador/05-gratidao-que-vira-acao.md) | mentalsoma | converter o agradecimento em gesto concreto |
 | 06 | [A bateria do energossoma](crianca-e-mediador/06-a-bateria-do-energossoma.md) | energossoma | correlacionar energia com hábitos observáveis |
 | 07 | [A sacudida do cachorro](crianca-e-mediador/07-a-sacudida-do-cachorro.md) | energossoma | medir antes e depois do exercício energético |
-| 08 | [O que muda e o que fica](crianca-e-mediador/08-o-que-muda-e-o-que-fica.md) | todos | distinguir identidade de aparência |
+| 08 | [O que muda e o que fica](crianca-e-mediador/08-o-que-muda-e-o-que-fica.md) — [**material produzido**](../materiais/o-que-muda-e-o-que-fica/) | todos | distinguir identidade de aparência |
 | 09 | [Entrevista sobre a dessoma](crianca-e-mediador/09-entrevista-sobre-a-dessoma.md) | — | escutar quem pensa diferente até o fim |
 
 ### Criança sozinha — a criança conduz e registra por conta própria
@@ -53,12 +53,12 @@ mãos, Diário de Emoções, Diário das Projeções e o experimento da gratidã
 | | Ficha | Veículo | Objetivo |
 |---|---|---|---|
 | 10 | [Diário de Emoções, 3 dias](crianca-apenas/10-diario-de-emocoes.md) | psicossoma | nomear a emoção e localizá-la no corpo |
-| 11 | [Diário das Projeções: os 60 segundos](crianca-apenas/11-diario-das-projecoes-60-segundos.md) | psicossoma | registrar antes que a memória se apague |
-| 12 | [Sonho ou projeção?](crianca-apenas/12-sonho-ou-projecao.md) | psicossoma | aplicar critério em vez de chutar o rótulo |
-| 13 | [Teste do dedo indicador](crianca-apenas/13-teste-do-dedo-indicador.md) | psicossoma, soma | trocar o hábito de supor pelo de conferir |
-| 14 | [Caça-sensações do EV](crianca-apenas/14-caca-sensacoes-do-ev.md) | energossoma | separar bioenergia de sensação comum do corpo |
-| 15 | [A bola entre as mãos](crianca-apenas/15-a-bola-entre-as-maos.md) | energossoma | variar um parâmetro por vez e comparar |
-| 16 | [Caderno do "ainda não sei"](crianca-apenas/16-caderno-do-ainda-nao-sei.md) | mentalsoma | aplicar o princípio da descrença ao próprio livro |
+| 11 | [Diário das Projeções: os 60 segundos](crianca-apenas/11-diario-das-projecoes-60-segundos.md) — [**material produzido**](../materiais/diario-das-projecoes/) | psicossoma | registrar antes que a memória se apague |
+| 12 | [Sonho ou projeção?](crianca-apenas/12-sonho-ou-projecao.md) — [**material produzido**](../materiais/sonho-ou-projecao/) | psicossoma | aplicar critério em vez de chutar o rótulo |
+| 13 | [Teste do dedo indicador](crianca-apenas/13-teste-do-dedo-indicador.md) — [**material produzido**](../materiais/teste-do-dedo-indicador/) | psicossoma, soma | trocar o hábito de supor pelo de conferir |
+| 14 | [Caça-sensações do EV](crianca-apenas/14-caca-sensacoes-do-ev.md) — [**material produzido**](../materiais/caca-sensacoes-do-ev/) | energossoma | separar bioenergia de sensação comum do corpo |
+| 15 | [A bola entre as mãos](crianca-apenas/15-a-bola-entre-as-maos.md) — [**material produzido**](../materiais/a-bola-entre-as-maos/) | energossoma | variar um parâmetro por vez e comparar |
+| 16 | [Caderno do "ainda não sei"](crianca-apenas/16-caderno-do-ainda-nao-sei.md) — [**material produzido**](../materiais/caderno-do-ainda-nao-sei/) | mentalsoma | aplicar o princípio da descrença ao próprio livro |
 | 17 | [Álbum de analogias](crianca-apenas/17-album-de-analogias.md) | todos | verificar a compreensão por produção, não repetição |
 
 ### Pais e educadores — roteiros de mediação, não atividades

@@ -11,6 +11,11 @@
 \usepackage[a4paper,top=18mm,bottom=16mm,left=20mm,right=20mm]{geometry}
 \usepackage{xcolor}
 
+%  colortbl da o \arrayrulecolor usado pelo marcador {{colunas}}: os
+%  fios da grade saem no mesmo preto a 15% das linhas de escrita, e nao
+%  em preto chapado, que competiria com o texto escrito por cima.
+\usepackage{colortbl}
+
 %  Century Schoolbook, a mesma familia do livro. Custa zero (ja esta
 %  instalada) e e a fonte desenhada para livro escolar infantil.
 \usepackage{tgschola}
@@ -85,6 +90,23 @@
   \par\nobreak\vspace{2mm}%
   \noindent{\color{\LinhaTom}\framebox[\linewidth][c]{\rule{0pt}{#1}}}%
   \par}
+
+% ---------------------------------------------------------------------
+%  \corte  --  linha tracejada de "corte aqui"
+% ---------------------------------------------------------------------
+%  Separa as copias de uma peca pequena numa folha A4. Cartao de bolso
+%  em A4 inteiro seria desperdicio de papel e nao caberia no bolso: a
+%  folha leva varias copias e a crianca recorta.
+%
+%  \leaders repete a caixa ate preencher o \hfill -- e a forma padrao
+%  de tracejado em TeX, sem pacote nenhum. O \kern0pt no fim ancora o
+%  \hfill: sem ele o TeX descarta a cola no fim da linha e o tracejado
+%  some.
+\newcommand{\corte}{%
+  \par\nobreak\vspace{5mm}%
+  \noindent{\color{black!35}%
+    \leaders\hbox{\rule[0.5ex]{2.5mm}{0.4pt}\kern1.5mm}\hfill\kern0pt}%
+  \par\vspace{5mm}}
 
 % ---------------------------------------------------------------------
 %  Titulos compactos: cada milimetro conta para a ficha caber em uma

@@ -47,55 +47,20 @@ command -v pdflatex >/dev/null || { echo "erro: pdflatex nao encontrado"; exit 1
 #  O .md fica LEGIVEL: escreve-se {{linhas:5}}, nao trinta linhas de
 #  XML. Este passo troca o marcador pelo bloco raw do formato de saida
 #  -- LaTeX chama \linhas do preambulo, OOXML emite paragrafos com
-#  borda inferior.
+#  borda inferior ou uma <w:tbl>.
 #
 #  Sem isto, a alternativa seria enfiar o OOXML cru dentro do .md, o
 #  que destruiria a razao de o .md ser a fonte: revisao de texto
 #  editorial legivel no diff.
 #
-#  8mm em vigesimos de ponto = 8/25.4*72*20 = 454.
+#  A logica esta em expandir.py, e nao aqui: com a chegada do marcador
+#  de colunas (grade com cabecalho, largura relativa e escape de LaTeX
+#  e de XML) o awk deixou de caber. Rode `expandir.py --help` para a
+#  lista de marcadores.
+command -v python3 >/dev/null || { echo "erro: python3 nao encontrado"; exit 1; }
+
 expande() {
-  local formato="$1"
-  awk -v fmt="$formato" '
-    function xml_linha() {
-      return "<w:p><w:pPr><w:pBdr><w:bottom w:val=\"single\" w:sz=\"4\" w:space=\"1\" w:color=\"D9D9D9\"/></w:pBdr><w:spacing w:line=\"454\" w:lineRule=\"exact\" w:before=\"0\" w:after=\"0\"/></w:pPr></w:p>"
-    }
-    /^\{\{linhas:[0-9]+\}\}$/ {
-      n = $0; gsub(/[^0-9]/, "", n)
-      if (fmt == "latex") {
-        print "```{=latex}"; print "\\linhas{" n "}"; print "```"
-      } else {
-        print "```{=openxml}"
-        for (i = 0; i < n + 0; i++) print xml_linha()
-        print "```"
-      }
-      next
-    }
-    /^\{\{moldura:[0-9]+mm\}\}$/ {
-      h = $0; gsub(/[^0-9]/, "", h)
-      if (fmt == "latex") {
-        print "```{=latex}"; print "\\moldura{" h "mm}"; print "```"
-      } else {
-        # 1mm = 56.7 vigesimos de ponto
-        tw = int(h * 56.7)
-        print "```{=openxml}"
-        print "<w:p><w:pPr><w:pBdr>" \
-              "<w:top w:val=\"single\" w:sz=\"4\" w:space=\"4\" w:color=\"D9D9D9\"/>" \
-              "<w:left w:val=\"single\" w:sz=\"4\" w:space=\"4\" w:color=\"D9D9D9\"/>" \
-              "<w:bottom w:val=\"single\" w:sz=\"4\" w:space=\"4\" w:color=\"D9D9D9\"/>" \
-              "<w:right w:val=\"single\" w:sz=\"4\" w:space=\"4\" w:color=\"D9D9D9\"/>" \
-              "</w:pBdr><w:spacing w:line=\"" tw "\" w:lineRule=\"exact\"/></w:pPr></w:p>"
-        print "```"
-      }
-      next
-    }
-    /^\{\{pagina\}\}$/ {
-      if (fmt == "latex") { print "```{=latex}"; print "\\newpage"; print "```" }
-      else { print "```{=openxml}"; print "<w:p><w:r><w:br w:type=\"page\"/></w:r></w:p>"; print "```" }
-      next
-    }
-    { print }
-  '
+  python3 "$COMUM/expandir.py" "$1"
 }
 
 processa() {

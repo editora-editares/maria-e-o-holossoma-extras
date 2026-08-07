@@ -13,9 +13,15 @@ Nenhum material de bioenergia deve ser publicado antes dela.
 
 **Técnica.** Seis fichas (06, 07, 08, 12, 15, 16) precisam de **grade ou
 colunas impressas**. Tabela de pipe do pandoc sai estreita e centrada; a de
-grid sai em largura cheia e resolve o caso de duas colunas de texto. Grade com
-fio em toda linha ainda não existe. Outras duas (13, 01) precisam de **formato
-de cartão**, não A4.
+grid sai em largura cheia e resolve o caso de duas colunas de texto, mas nenhuma
+das duas dá lugar para escrever. **Resolvido:** o marcador `{{colunas:N|A|B}}`
+gera a grade com fio em toda linha, nos dois formatos de saída, com largura
+relativa por coluna.
+
+Duas fichas (13, 01) precisam de **formato de cartão**, não A4. **Resolvido**
+também: o marcador `{{corte}}` desenha a linha tracejada de "corte aqui", e a
+folha A4 leva várias cópias da peça pequena. A nº 01 ainda vai precisar de
+cartas maiores, mas o mecanismo já existe.
 
 ## Ordem
 
@@ -27,14 +33,14 @@ de cartão**, não A4.
 | 2 | 03 · Água e areia | **feita** | primeiro consumidor real da ficha 02 — testa o MVP em uso |
 | 3 | 19 · O que o amparador não é | **feita** | a 18 termina apontando para ela |
 | 4 | 18 · Meu filho falou disso na escola | **feita** | fecha o kit do adulto |
-| 5 | 16 · Caderno do "ainda não sei" | | encena a última página do livro; estreia a grade de 3 colunas |
-| 6 | 08 · O que muda e o que fica | | reusa a grade (2 colunas) |
-| 7 | 04 · Piquenique dos cinco sentidos | | folha em 5 partes; reusa |
-| 8 | 11 · Diário das Projeções | | abre o bloco psicossoma; a 12 e a 13 dependem dele |
-| 9 | 12 · Sonho ou projeção? | | inútil sem umas dez noites da nº 11 |
-| 10 | 13 · Teste do dedo indicador | | estreia o formato cartão de bolso |
-| 11 | 15 · A bola entre as mãos | | melhor lição de método do conjunto (grupo de controle) |
-| 12 | 14 · Caça-sensações do EV | | 7 molduras; o `{{moldura}}` já existe |
+| 5 | 16 · Caderno do "ainda não sei" | **feita** | encena a última página do livro; estreou a grade de 3 colunas |
+| 6 | 08 · O que muda e o que fica | **feita** | reusou a grade (2 colunas) |
+| 7 | 04 · Piquenique dos cinco sentidos | **feita** | folha em 5 partes |
+| 8 | 11 · Diário das Projeções | **feita** | abre o bloco psicossoma; a 12 e a 13 dependem dele |
+| 9 | 12 · Sonho ou projeção? | **feita** | inútil sem umas dez noites da nº 11 |
+| 10 | 13 · Teste do dedo indicador | **feita** | estreou o corte, para o cartão de bolso |
+| 11 | 15 · A bola entre as mãos | **feita** | melhor lição de método do conjunto (grupo de controle) |
+| 12 | 14 · Caça-sensações do EV | **feita** | uma moldura por dia, desenhada pela criança |
 | 13 | 07 · A sacudida do cachorro | | autorregulação **com** verificação |
 | 14 | 06 · A bateria do energossoma | | 7 dias × 3 vezes: maior chance de abandono |
 | 15 | 10 · Diário de Emoções | | independente, mas nada destrava |

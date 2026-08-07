@@ -31,13 +31,14 @@ ainda não avaliadas e ainda não aprovadas** pela autora nem pela editora. Nada
 ali é compromisso de publicação: são um experimento, e a próxima etapa é
 justamente avaliá-las.
 
-Cinco fichas já viraram material, como MVP — as de nº 02, 03, 18, 19 e 20 —,
-mais [`materiais/como-conduzir-os-exercicios/`](materiais/como-conduzir-os-exercicios/),
+Treze fichas já viraram material, como MVP — as de nº 02, 03, 04, 08, 11, 12,
+13, 14, 15, 16, 18, 19 e 20 —, mais
+[`materiais/como-conduzir-os-exercicios/`](materiais/como-conduzir-os-exercicios/),
 que não sai de nenhuma ficha e reúne as instruções didáticas comuns a todas.
 O índice está em [`materiais/README.md`](materiais/README.md).
 
 Tudo isso existe para testar conteúdo e fluxo de produção, não para fechar o
-visual — e nada está aprovado. As outras 15 fichas continuam só como proposta,
+visual — e nada está aprovado. As outras 7 fichas continuam só como proposta,
 e não há site.
 
 ## As regras que o livro impõe a qualquer material

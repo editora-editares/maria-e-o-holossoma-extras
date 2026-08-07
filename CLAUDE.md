@@ -24,7 +24,8 @@ ainda não aprovadas** pela autora nem pela editora. Nada ali é compromisso de
 publicação. A próxima etapa do projeto é avaliá-las; só depois vêm a produção
 dos materiais, a publicação e a atualização do livro para referenciá-los.
 
-`materiais/` já tem produção: as fichas nº 02, 03, 18, 19 e 20, mais
+`materiais/` já tem produção: as fichas nº 02, 03, 04, 08, 11, 12, 13, 14, 15,
+16, 18, 19 e 20, mais
 `como-conduzir-os-exercicios/`, que é transversal. Tudo é MVP — serve para
 testar conteúdo e fluxo de produção, não está aprovado e não fecha o visual.
 O índice fica em `materiais/README.md`; a ordem de produção, em
@@ -159,10 +160,17 @@ para o `.md`, ou se perde.
 
 Precisa de `pandoc` e `pdflatex`; não precisa de Word nem de LibreOffice.
 
-Nos `.md` das peças imprimíveis, três marcadores que o build expande por
-formato de saída — `{{linhas:N}}`, `{{moldura:NNmm}}` e `{{pagina}}`. Existem
-para o `.md` continuar diffável: sem eles, o OOXML cru de cada linha pautada
-moraria dentro do arquivo. O racional completo está em `materiais/README.md`.
+Nos `.md` das peças imprimíveis, marcadores que o build expande por formato de
+saída — `{{linhas:N}}`, `{{moldura:NNmm}}`, `{{pagina}}`, `{{corte}}` e
+`{{colunas:N|A|B|C}}`. Existem para o `.md` continuar diffável: sem eles, o
+OOXML cru de cada linha pautada moraria dentro do arquivo. A expansão está em
+`materiais/_comum/expandir.py`; o racional completo, em `materiais/README.md`.
+
+**Grade para escrever não se faz com tabela do Markdown.** Tabela de pipe do
+pandoc sai estreita e centrada no PDF; a de *grid* sai em largura cheia, mas
+nenhuma das duas põe fio em toda linha — e sem fio por linha não há onde
+escrever. Use `{{colunas}}`. Tabela **de leitura** continua sendo tabela em
+*grid* do Markdown.
 
 **O MVP não reproduz o visual do livro de propósito.** A pauta ciano de 25% e a
 FR Cursive de `../mary-livro/config/pauta.tex` ficaram fora; as linhas saem em
@@ -179,29 +187,36 @@ Herdadas de `../mary-livro/CLAUDE.md`:
 
 ## Verificação
 
-Não há suíte de testes. O que existe são checagens de fidelidade, todas via
-`grep`. Rode-as ao alterar conteúdo editorial:
+Não há suíte de testes. O equivalente é fidelidade ao livro, mais a sanidade
+dos arquivos que a autora vai abrir. **Rode isto ao alterar conteúdo
+editorial:**
 
 ```sh
-# Nenhuma referência por número de página (a paginação não está fechada)
-grep -rnE '\bp\. ?[0-9]|página [0-9]|pág\.' README.md docs/ ideias/ \
-     --include='*.md' materiais/
+python3 tools/conferir.py       # sai 1 se algo falhar
+```
 
-# Toda citação literal dos materiais existe no fonte do livro
-python3 tools/conferir-citacoes.py          # sai 1 se alguma falhar
+Ele confere as cinco coisas: todo `.md` de peça tem `.docx` e `.pdf` ao lado;
+todo PDF está em A4; todo `.docx` é zip válido com XML bem formado; nenhuma
+referência por número de página; e toda citação literal existe no fonte de
+`../mary-livro` — este último delegado a `tools/conferir-citacoes.py`.
 
-# Conferência avulsa de um trecho
-grep -rF "trecho citado" ../mary-livro/chapters ../mary-livro/backmatter
+Para achar um trecho no livro e ver o contexto:
 
-**Cuidado com o `~` ao conferir citação.** O fonte do livro usa espaço
-inseparável do LaTeX no meio de frases — `É~importante`, `outros.~Ele` —, e um
-`grep -F` do trecho com espaço normal **não acha**, mesmo a citação estando
-literalmente certa. Já produziu falso positivo em
-`materiais/o-que-o-amparador-nao-e/`. Ao conferir, troque `~` por espaço nos
-dois lados antes de comparar, ou busque um pedaço curto que não atravesse o
-til.
+```sh
+python3 tools/buscar-no-livro.py "trecho procurado"
+python3 tools/buscar-no-livro.py -c 300 "trecho"     # mais contexto
+```
 
-# Contagens declaradas são medidas, nunca escritas à mão
+**Prefira essa busca ao `grep` cru.** O fonte do livro usa espaço inseparável
+do LaTeX no meio de frases — `É~importante`, `outros.~Ele` —, e um `grep -F` do
+trecho com espaço normal **não acha**, mesmo a citação estando literalmente
+certa. Já produziu falso positivo em `materiais/o-que-o-amparador-nao-e/`. O
+`buscar-no-livro.py` e o `conferir-citacoes.py` normalizam o `~`; o `grep` na
+mão, não.
+
+Contagens declaradas são medidas, nunca escritas à mão:
+
+```sh
 grep -c '\\fala{' ../mary-livro/chapters/*.tex
 grep -ohE '\\(prancha|pranchaQuebra)\{image' ../mary-livro/chapters/*.tex \
      ../mary-livro/backmatter/*.tex | wc -l
