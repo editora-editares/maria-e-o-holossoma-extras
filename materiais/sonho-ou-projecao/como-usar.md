@@ -8,19 +8,12 @@ você vai usar os critérios **dele** nas anotações **suas**.
 
 ## Os critérios
 
-+--------------------------+-------------------------------+-------------------------------+
-|                          | Mais parece **sonho**         | Mais parece **projeção**      |
-+==========================+===============================+===============================+
-| Como as cenas se         | embaralhadas, como pedaços de | uma coisa de cada vez, em     |
-| encaixam                 | filmes diferentes             | ordem                         |
-+--------------------------+-------------------------------+-------------------------------+
-| Nitidez                  | confuso                       | nítido, claro                 |
-+--------------------------+-------------------------------+-------------------------------+
-| O que eu fiz             | só acompanhei, como quem      | tomei decisões, agi           |
-|                          | assiste                       |                               |
-+--------------------------+-------------------------------+-------------------------------+
-| Parecido com quê         | com imaginação                | com estar acordado            |
-+--------------------------+-------------------------------+-------------------------------+
+{{tabela|[26]|[37]Mais parece sonho|[37]Mais parece projeção}}
+Como as cenas se encaixam | embaralhadas, como pedaços de filmes diferentes | uma coisa de cada vez, em ordem
+Nitidez | confuso | nítido, claro
+O que eu fiz | só acompanhei, como quem assiste | tomei decisões, agi
+Parecido com quê | com imaginação | com estar acordado
+{{/tabela}}
 
 Os quatro saem da fala em que Antônio explica os dois diários, no capítulo
 *Cada corpo, uma aventura!*. Sobre o sonho ele diz que as cenas vêm

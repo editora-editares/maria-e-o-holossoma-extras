@@ -31,15 +31,17 @@ ainda não avaliadas e ainda não aprovadas** pela autora nem pela editora. Nada
 ali é compromisso de publicação: são um experimento, e a próxima etapa é
 justamente avaliá-las.
 
-Treze fichas já viraram material, como MVP — as de nº 02, 03, 04, 08, 11, 12,
-13, 14, 15, 16, 18, 19 e 20 —, mais
+**As vinte já viraram material**, como MVP, mais
 [`materiais/como-conduzir-os-exercicios/`](materiais/como-conduzir-os-exercicios/),
 que não sai de nenhuma ficha e reúne as instruções didáticas comuns a todas.
 O índice está em [`materiais/README.md`](materiais/README.md).
 
-Tudo isso existe para testar conteúdo e fluxo de produção, não para fechar o
-visual — e nada está aprovado. As outras 7 fichas continuam só como proposta,
-e não há site.
+Cada peça existe em `.md` — a fonte —, `.docx`, para a autora e a editora
+editarem no Word, e `.pdf` A4 imprimível.
+
+Isso existe para testar conteúdo e fluxo de produção, não para fechar o visual.
+**Nada está aprovado**, e não há site. O que muda em relação a antes é só que a
+avaliação agora pode acontecer sobre material, e não sobre descrição.
 
 ## As regras que o livro impõe a qualquer material
 
@@ -99,7 +101,15 @@ Herdadas de `../mary-livro/CLAUDE.md`:
 
 ## Próximas etapas
 
-1. **Avaliar** as vinte ideias de `ideias/`, e o MVP já produzido da nº 02.
-2. **Produzir** os materiais aprovados.
-3. **Publicar** na internet.
-4. **Atualizar `../mary-livro`** para referenciar o que foi publicado.
+1. **Avaliar** as vinte fichas e os materiais produzidos a partir delas — é a
+   etapa em que o projeto está.
+2. **Imprimir uma prova** em impressora doméstica P&B e conferir se as linhas
+   a 15% e os fios das grades dão para escrever em cima. É o único teste que o
+   repositório não faz sozinho.
+3. **Revisar e aprovar**, com a autora e a editora. As edições feitas no
+   `.docx` precisam voltar para o `.md` — ver
+   [`materiais/README.md`](materiais/README.md).
+4. **Fechar o visual**, se for o caso: a pauta ciano e a cursiva escolar do
+   livro ficaram fora do MVP de propósito.
+5. **Publicar** na internet.
+6. **Atualizar `../mary-livro`** para referenciar o que foi publicado.

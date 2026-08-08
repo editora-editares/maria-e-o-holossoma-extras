@@ -1,7 +1,7 @@
 # A sacudida do cachorro — guia do mediador
 
-> **Leia [Conduzir sem induzir](../conduzir-sem-induzir/) antes.**
-> É atividade de bioenergia.
+**Leia [Conduzir sem induzir](../conduzir-sem-induzir/) antes.** É atividade de
+bioenergia.
 
 ## O que esta atividade entrega
 

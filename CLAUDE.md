@@ -21,15 +21,17 @@ commit.
 
 As vinte fichas em `ideias/` são **propostas redigidas, ainda não avaliadas e
 ainda não aprovadas** pela autora nem pela editora. Nada ali é compromisso de
-publicação. A próxima etapa do projeto é avaliá-las; só depois vêm a produção
-dos materiais, a publicação e a atualização do livro para referenciá-los.
+publicação.
 
-`materiais/` já tem produção: as fichas nº 02, 03, 04, 08, 11, 12, 13, 14, 15,
-16, 18, 19 e 20, mais
-`como-conduzir-os-exercicios/`, que é transversal. Tudo é MVP — serve para
-testar conteúdo e fluxo de produção, não está aprovado e não fecha o visual.
-O índice fica em `materiais/README.md`; a ordem de produção, em
-`docs/prioridades.md`.
+`materiais/` tem **as vinte produzidas**, mais `como-conduzir-os-exercicios/`,
+que é transversal. Tudo é MVP — serve para testar conteúdo e fluxo de produção,
+**não está aprovado** e não fecha o visual. O índice fica em
+`materiais/README.md`; o porquê da ordem em que foram feitas, e o que ficou
+pendente, em `docs/prioridades.md`.
+
+Produzir não é aprovar: a etapa atual do projeto continua sendo **avaliar**.
+O que mudou é que a avaliação agora acontece sobre material imprimível, e não
+sobre descrição. Nenhuma peça foi testada em impressora doméstica ainda.
 
 ## A dependência de `../mary-livro`
 
@@ -166,11 +168,19 @@ saída — `{{linhas:N}}`, `{{moldura:NNmm}}`, `{{pagina}}`, `{{corte}}` e
 OOXML cru de cada linha pautada moraria dentro do arquivo. A expansão está em
 `materiais/_comum/expandir.py`; o racional completo, em `materiais/README.md`.
 
-**Grade para escrever não se faz com tabela do Markdown.** Tabela de pipe do
-pandoc sai estreita e centrada no PDF; a de *grid* sai em largura cheia, mas
-nenhuma das duas põe fio em toda linha — e sem fio por linha não há onde
-escrever. Use `{{colunas}}`. Tabela **de leitura** continua sendo tabela em
-*grid* do Markdown.
+**Tabela do Markdown não põe fio entre as linhas do corpo.** A de pipe ainda
+sai estreita e centrada no PDF; a de *grid* sai em largura cheia, mas as duas
+desenham fio só no topo, no cabeçalho e no rodapé. Três casos, três soluções:
+
+| a tabela é | use |
+|---|---|
+| leitura corrida | tabela em *grid* do Markdown |
+| correspondência — a linha é a unidade de sentido | `{{tabela}}` |
+| para escrever dentro | `{{colunas}}` |
+
+O caso do meio já quebrou uma peça: no guia da ficha nº 20 os pares "não
+pergunte / pergunte" viraram um bloco corrido e se perdia qual linha casava
+com qual.
 
 **O MVP não reproduz o visual do livro de propósito.** A pauta ciano de 25% e a
 FR Cursive de `../mary-livro/config/pauta.tex` ficaram fora; as linhas saem em

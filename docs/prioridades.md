@@ -41,20 +41,32 @@ cartas maiores, mas o mecanismo já existe.
 | 10 | 13 · Teste do dedo indicador | **feita** | estreou o corte, para o cartão de bolso |
 | 11 | 15 · A bola entre as mãos | **feita** | melhor lição de método do conjunto (grupo de controle) |
 | 12 | 14 · Caça-sensações do EV | **feita** | uma moldura por dia, desenhada pela criança |
-| 13 | 07 · A sacudida do cachorro | | autorregulação **com** verificação |
-| 14 | 06 · A bateria do energossoma | | 7 dias × 3 vezes: maior chance de abandono |
-| 15 | 10 · Diário de Emoções | | independente, mas nada destrava |
-| 16 | 17 · Álbum de analogias | | quatro folhas simples |
-| 17 | 05 · Gratidão que vira ação | | quase só prosa + ficha 02 |
-| 18 | 09 · Entrevista sobre a dessoma | | a mais difícil de conduzir; melhor com o kit do adulto validado |
-| 19 | 01 · Baralho do Filtro Pessoal | | única que precisa de recorte; reusa o formato cartão da nº 13 |
+| 13 | 07 · A sacudida do cachorro | **feita** | autorregulação **com** verificação |
+| 14 | 06 · A bateria do energossoma | **feita** | 7 dias × 3 vezes: maior chance de abandono |
+| 15 | 10 · Diário de Emoções | **feita** | independente, mas nada destrava |
+| 16 | 17 · Álbum de analogias | **feita** | quatro folhas simples |
+| 17 | 05 · Gratidão que vira ação | **feita** | quase só prosa + ficha 02 |
+| 18 | 09 · Entrevista sobre a dessoma | **feita** | a mais difícil de conduzir; feita com o kit do adulto já validado |
+| 19 | 01 · Baralho do Filtro Pessoal | **feita** | única que precisa de recorte; reusou o corte da nº 13 |
 
-## Duas ressalvas
+**As vinte estão produzidas.** A lista acima passa a ser registro de por que a
+ordem foi essa, não fila de trabalho.
+
+## O que ficou pendente
 
 **Em 12, 18, 19 e 20 o "material" é quase a ficha reimpressa.** A tabela de
-critérios da nº 12 já está escrita dentro dela. Vale decidir se essas viram PDF
-ou se são só conteúdo de site.
+critérios da nº 12 já estava escrita dentro dela. Vale decidir se essas quatro
+viram PDF ou se são só conteúdo de site — a decisão não foi tomada, elas saíram
+nos três formatos como todas as outras.
 
-**A nº 01 em último é decisão de custo, não de qualidade.** É uma das melhores
-do conjunto e a única com crédito de terceiro (Marina Elias Volpe). Sobe assim
-que o layout de recorte existir.
+**As cartas da nº 01 são tiras, não retângulos de baralho.** O `{{corte}}` só
+faz corte horizontal, então saem quatro cartas largas por A4. Funciona para
+escrever e virar; corte vertical daria o formato esperado.
+
+**Nenhuma peça foi testada em impressora doméstica.** É o único teste que o
+repositório não consegue fazer sozinho: imprimir em P&B e conferir se as linhas
+a 15% e os fios da grade aparecem e dão para escrever em cima.
+
+**Nada está aprovado.** As vinte fichas continuam sendo propostas não avaliadas
+pela autora nem pela editora; agora existem em versão imprimível para que a
+avaliação possa acontecer sobre material, e não sobre descrição.

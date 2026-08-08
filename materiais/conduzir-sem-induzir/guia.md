@@ -12,20 +12,13 @@ com a melhor das intenções.
 
 **A pergunta não pode conter a resposta.**
 
-+--------------------------------------------+--------------------------------------------+
-| Não pergunte                                | Pergunte                                    |
-+============================================+============================================+
-| "Sentiu formigar, né?"                      | "O que você percebeu?"                      |
-+--------------------------------------------+--------------------------------------------+
-| "Tá sentindo a energia?"                    | "Aconteceu alguma coisa? Onde?"             |
-+--------------------------------------------+--------------------------------------------+
-| "Não sentiu nada mesmo?"                    | "Como foi?"                                 |
-+--------------------------------------------+--------------------------------------------+
-| "Tenta de novo, você consegue"              | "Quer anotar assim mesmo e tentar amanhã?"  |
-+--------------------------------------------+--------------------------------------------+
-| "Isso aí é o EV!"                           | "Como você descreveria isso com as suas     |
-|                                             | palavras?"                                  |
-+--------------------------------------------+--------------------------------------------+
+{{tabela|Não pergunte|Pergunte}}
+"Sentiu formigar, né?" | "O que você percebeu?"
+"Tá sentindo a energia?" | "Aconteceu alguma coisa? Onde?"
+"Não sentiu nada mesmo?" | "Como foi?"
+"Tenta de novo, você consegue" | "Quer anotar assim mesmo e tentar amanhã?"
+"Isso aí é o EV!" | "Como você descreveria isso com as suas palavras?"
+{{/tabela}}
 
 ## Por que isso estraga o resultado
 

@@ -11,33 +11,45 @@ quando isto for para a internet, e URL com número envelhece mal.
 | pasta | ficha | para quem |
 |---|---|---|
 | [`como-conduzir-os-exercicios/`](como-conduzir-os-exercicios/) | — | adulto — **transversal**, vale para todas as atividades |
+| [`baralho-do-filtro-pessoal/`](baralho-do-filtro-pessoal/) | 01 | criança e adulto — cartas de recortar |
 | [`minha-ficha-de-experimento/`](minha-ficha-de-experimento/) | 02 | criança e adulto — é a folha de registro comum a todas as atividades |
 | [`agua-e-areia/`](agua-e-areia/) | 03 | criança com adulto presente |
 | [`piquenique-dos-cinco-sentidos/`](piquenique-dos-cinco-sentidos/) | 04 | criança com adulto presente, fora de casa |
+| [`gratidao-que-vira-acao/`](gratidao-que-vira-acao/) | 05 | criança com adulto por perto |
+| [`a-bateria-do-energossoma/`](a-bateria-do-energossoma/) | 06 | criança, 7 dias — **leia a nº 20 antes** |
+| [`a-sacudida-do-cachorro/`](a-sacudida-do-cachorro/) | 07 | criança, repetido — **leia a nº 20 antes** |
 | [`o-que-muda-e-o-que-fica/`](o-que-muda-e-o-que-fica/) | 08 | criança com adulto por perto |
+| [`entrevista-sobre-a-dessoma/`](entrevista-sobre-a-dessoma/) | 09 | criança e adulto — **a mais delicada** |
+| [`diario-de-emocoes/`](diario-de-emocoes/) | 10 | criança sozinha, 3 dias |
 | [`diario-das-projecoes/`](diario-das-projecoes/) | 11 | criança sozinha, toda manhã |
 | [`sonho-ou-projecao/`](sonho-ou-projecao/) | 12 | criança sozinha — **depende do diário acima** |
 | [`teste-do-dedo-indicador/`](teste-do-dedo-indicador/) | 13 | criança sozinha, 7 dias |
 | [`caca-sensacoes-do-ev/`](caca-sensacoes-do-ev/) | 14 | criança sozinha, 7 dias — **leia a nº 20 antes** |
 | [`a-bola-entre-as-maos/`](a-bola-entre-as-maos/) | 15 | criança sozinha, 5 dias — **leia a nº 20 antes** |
 | [`caderno-do-ainda-nao-sei/`](caderno-do-ainda-nao-sei/) | 16 | criança sozinha, o ano todo |
+| [`album-de-analogias/`](album-de-analogias/) | 17 | criança sozinha, 4 folhas |
 | [`meu-filho-falou-disso-na-escola/`](meu-filho-falou-disso-na-escola/) | 18 | adulto |
 | [`o-que-o-amparador-nao-e/`](o-que-o-amparador-nao-e/) | 19 | adulto |
 | [`conduzir-sem-induzir/`](conduzir-sem-induzir/) | 20 | adulto — **pré-requisito das atividades de bioenergia** |
 
-As outras 7 fichas ainda não foram produzidas — e nem avaliadas. A ordem
-sugerida de produção está em [`docs/prioridades.md`](../docs/prioridades.md).
+**As vinte fichas estão produzidas.** Nenhuma está aprovada. O porquê da ordem
+em que foram feitas está em [`docs/prioridades.md`](../docs/prioridades.md).
 
 ## Dependências entre as pastas
 
 Três pares não podem ser usados fora de ordem:
 
-- **`conduzir-sem-induzir/` antes** de `caca-sensacoes-do-ev/` e de
-  `a-bola-entre-as-maos/` — são as atividades de bioenergia;
+- **`conduzir-sem-induzir/` antes** de `a-bateria-do-energossoma/`,
+  `a-sacudida-do-cachorro/`, `caca-sensacoes-do-ev/` e `a-bola-entre-as-maos/`
+  — são as quatro atividades de bioenergia;
 - **`diario-das-projecoes/` antes** de `sonho-ou-projecao/`, e com umas dez
   noites já anotadas, senão não há o que classificar;
 - **`minha-ficha-de-experimento/`** é a folha de registro que as atividades
   usam quando pedem "anote na sua ficha".
+
+E uma que não é dependência, mas cuidado: **`entrevista-sobre-a-dessoma/` não
+deve ser feita se houver luto recente na família.** Está em destaque no guia
+daquela pasta.
 
 **O material transversal remete, não repete.** As instruções didáticas cobrem
 o que é comum a todos os exercícios — a inversão pedagógica, os cinco tempos
@@ -82,8 +94,13 @@ para revisar texto.
 | `{{moldura:185mm}}` | um retângulo vazio de 185 mm de altura, para desenhar |
 | `{{pagina}}` | quebra de página |
 | `{{corte}}` | linha tracejada de "corte aqui" |
-| `{{colunas:12\|A\|B\|C}}` | grade de 12 linhas com as colunas A, B e C |
+| `{{colunas:12\|A\|B\|C}}` | grade **vazia** de 12 linhas com as colunas A, B e C |
 | `{{colunas:16\|[75]A\|[25]B}}` | idem, com largura relativa por coluna |
+| `{{tabela\|A\|B}} … {{/tabela}}` | grade **com texto**, fio em toda linha |
+
+O `{{tabela}}` é o único marcador de bloco: as linhas entre a abertura e o
+`{{/tabela}}` viram células separadas por `|`. Dentro das células, `**negrito**`
+funciona — e nada mais.
 
 O `[75]` é **peso relativo**, não milímetro: os pesos são normalizados pela
 largura da mancha.
@@ -100,9 +117,16 @@ das duas desenha fio em toda linha — e sem fio por linha não há onde a crian
 escrever. O marcador emite `tabular` no LaTeX e `<w:tbl>` no OOXML, com fio em
 todas as bordas no mesmo preto a 15% das linhas de escrita.
 
-Tabela **de leitura** — a de critérios em `sonho-ou-projecao/`, por exemplo —
-continua sendo tabela em *grid* do Markdown. Só use `{{colunas}}` quando
-alguém for escrever dentro.
+**E tabela de leitura também não, quando a linha importa.** A tabela em *grid*
+do pandoc desenha fio só no topo, no cabeçalho e no rodapé — nunca entre as
+linhas do corpo. Numa tabela de **correspondência**, do tipo "não pergunte X /
+pergunte Y", os pares viram um bloco corrido e o leitor perde qual linha casa
+com qual. Foi o que aconteceu no guia da ficha nº 20, e é o motivo de o
+`{{tabela}}` existir.
+
+A regra, então: tabela de **leitura corrida** pode ser Markdown; tabela em que
+a **linha é a unidade de sentido** usa `{{tabela}}`; tabela para **escrever
+dentro** usa `{{colunas}}`.
 
 **Por que o corte.** Peça pequena — cartão de bolso, carta de baralho — em A4
 inteiro é desperdício de papel e não cabe no bolso. A folha leva várias cópias

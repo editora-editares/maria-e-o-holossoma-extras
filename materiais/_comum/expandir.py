@@ -16,11 +16,30 @@ MARCADORES
     {{moldura:185mm}}                retangulo vazio, para desenhar
     {{pagina}}                       quebra de pagina
     {{corte}}                        linha tracejada de "corte aqui"
-    {{colunas:12|A|B|C}}             grade: 12 linhas, colunas A, B e C
+    {{colunas:12|A|B|C}}             grade VAZIA: 12 linhas, colunas A, B e C
     {{colunas:20|[70]A|[30]B}}       idem, com largura relativa por coluna
+
+    {{tabela|A|B}}                   grade COM TEXTO, fio em toda linha
+    primeira celula | segunda
+    outra linha     | outra
+    {{/tabela}}
 
 O [70] no cabecalho e peso relativo, nao milimetro: os pesos sao normalizados
 pela largura da mancha. Sem [n], as colunas saem iguais.
+
+POR QUE {{tabela}} EXISTE, SE O MARKDOWN JA TEM TABELA
+
+A tabela em grid do pandoc sai em largura cheia, mas desenha fio SO no topo, no
+cabecalho e no rodape -- nunca entre as linhas do corpo. Numa tabela de
+CORRESPONDENCIA, do tipo "nao pergunte X / pergunte Y", os pares viram um bloco
+corrido e o leitor perde qual linha casa com qual. Foi reportado no guia da
+ficha 20, e e o motivo deste marcador existir.
+
+Regra: tabela de leitura corrida pode ser Markdown; tabela em que a LINHA e a
+unidade de sentido usa {{tabela}}.
+
+Nas celulas, **negrito** funciona. Mais nada -- isto nao e um interpretador de
+Markdown.
 """
 import re
 import sys
@@ -115,9 +134,55 @@ def _pesos(cabecalhos):
     return titulos, [p / soma for p in pesos]
 
 
-def colunas(n_linhas, cabecalhos, fmt):
+def _aspas(s):
+    """Aspas retas -> aspas curvas, alternando abre/fecha.
+
+    O conteudo do marcador vai para um bloco RAW, onde o pandoc nao passa
+    mais: sem isto as aspas saem retas dentro da tabela e curvas no resto
+    da pagina, no mesmo paragrafo. Alternar por celula basta -- aspas
+    abrem e fecham dentro da mesma celula.
+    """
+    saida, aberta = [], True
+    for ch in s:
+        if ch == '"':
+            saida.append("“" if aberta else "”")
+            aberta = not aberta
+        else:
+            saida.append(ch)
+    return "".join(saida)
+
+
+def _negrito_tex(s):
+    """**x** -> \\textbf{x}. Escapa o resto. Nao interpreta mais nada."""
+    partes = _aspas(s).split("**")
+    return "".join(esc_tex(p) if i % 2 == 0 else "\\textbf{%s}" % esc_tex(p)
+                   for i, p in enumerate(partes))
+
+
+def _negrito_xml(s):
+    """**x** -> run em negrito. Cada pedaco vira um <w:r> proprio."""
+    runs = []
+    for i, p in enumerate(_aspas(s).split("**")):
+        if not p:
+            continue
+        rpr = "<w:rPr><w:b/></w:rPr>" if i % 2 else ""
+        runs.append('<w:r>%s<w:t xml:space="preserve">%s</w:t></w:r>'
+                    % (rpr, esc_xml(p)))
+    return "".join(runs) or '<w:r><w:t xml:space="preserve"></w:t></w:r>'
+
+
+def colunas(n_linhas, cabecalhos, fmt, conteudo=None):
+    """Grade impressa.
+
+    conteudo=None      -> n_linhas linhas VAZIAS, para escrever a mao
+    conteudo=[[...]]   -> uma linha por item, com texto; n_linhas e ignorado
+
+    Nos dois casos sai fio em TODA linha -- que e a diferenca para a tabela
+    do Markdown, e o motivo de este marcador existir.
+    """
     titulos, fracoes = _pesos(cabecalhos)
     n = len(titulos)
+    conteudo = conteudo or []
 
     if fmt == "latex":
         #  A largura de cada p{} sai da mancha menos o que a propria
@@ -137,8 +202,15 @@ def colunas(n_linhas, cabecalhos, fmt):
         corpo = ["\\noindent\\begin{tabular}{%s}" % spec,
                  "\\hline",
                  "\\rule{0pt}{5.5mm}%s \\\\ \\hline" % cab]
-        vazia = "\\rule{0pt}{%dmm}%s \\\\ \\hline" % (PASSO_MM, " & " * (n - 1))
-        corpo += [vazia] * n_linhas
+        if conteudo:
+            for linha_ in conteudo:
+                celulas = [_negrito_tex(c) for c in linha_] + [""] * (n - len(linha_))
+                corpo.append("\\rule{0pt}{5mm}%s \\\\ \\hline"
+                             % " & ".join(celulas[:n]))
+        else:
+            vazia = ("\\rule{0pt}{%dmm}%s \\\\ \\hline"
+                     % (PASSO_MM, " & " * (n - 1)))
+            corpo += [vazia] * n_linhas
         corpo.append("\\end{tabular}")
         return bloco("latex",
                      ["\\par\\nobreak\\vspace{2mm}",
@@ -164,11 +236,19 @@ def colunas(n_linhas, cabecalhos, fmt):
         '%s</w:t></w:r></w:p></w:tc>' % (w, esc_xml(t))
         for w, t in zip(largura, titulos))
     xml.append("<w:tr>%s</w:tr>" % celulas_cab)
-    vazias = "".join(
-        '<w:tc><w:tcPr><w:tcW w:w="%d" w:type="pct"/></w:tcPr><w:p/></w:tc>' % w
-        for w in largura)
-    xml += ['<w:tr><w:trPr><w:trHeight w:val="%d"/></w:trPr>%s</w:tr>'
-            % (PASSO_TW, vazias)] * n_linhas
+    if conteudo:
+        for linha_ in conteudo:
+            celulas = list(linha_) + [""] * (n - len(linha_))
+            xml.append("<w:tr>%s</w:tr>" % "".join(
+                '<w:tc><w:tcPr><w:tcW w:w="%d" w:type="pct"/></w:tcPr>'
+                '<w:p>%s</w:p></w:tc>' % (w, _negrito_xml(c))
+                for w, c in zip(largura, celulas[:n])))
+    else:
+        vazias = "".join(
+            '<w:tc><w:tcPr><w:tcW w:w="%d" w:type="pct"/></w:tcPr><w:p/></w:tc>'
+            % w for w in largura)
+        xml += ['<w:tr><w:trPr><w:trHeight w:val="%d"/></w:trPr>%s</w:tr>'
+                % (PASSO_TW, vazias)] * n_linhas
     #  Paragrafo vazio depois da tabela: o Word exige que o corpo nao
     #  termine em <w:tbl>, e duas tabelas seguidas sem ele se fundem.
     xml += ["</w:tbl>", "<w:p/>"]
@@ -181,8 +261,26 @@ def main():
         sys.exit("uso: expandir.py latex|openxml < entrada.md")
     fmt = sys.argv[1]
     saida = []
+    #  {{tabela}} e o unico marcador de BLOCO: abre, consome as linhas
+    #  seguintes como celulas separadas por "|", e fecha em {{/tabela}}.
+    tab_cab, tab_linhas = None, []
+
     for linha in sys.stdin.read().splitlines():
         t = linha.strip()
+
+        if tab_cab is not None:
+            if re.fullmatch(r"\{\{/tabela\}\}", t):
+                saida += colunas(0, tab_cab, fmt, conteudo=tab_linhas)
+                tab_cab, tab_linhas = None, []
+            elif t:
+                tab_linhas.append([c.strip() for c in t.split("|")])
+            continue
+
+        m = re.fullmatch(r"\{\{tabela\|(.+)\}\}", t)
+        if m:
+            tab_cab, tab_linhas = m.group(1).split("|"), []
+            continue
+
         m = re.fullmatch(r"\{\{linhas:(\d+)\}\}", t)
         if m:
             saida += linhas(int(m.group(1)), fmt)
@@ -204,6 +302,10 @@ def main():
             saida += colunas(int(m.group(1)), m.group(2).split("|"), fmt)
             continue
         saida.append(linha)
+
+    if tab_cab is not None:
+        sys.exit("erro: {{tabela}} aberta sem {{/tabela}}")
+
     print("\n".join(saida))
     return 0
 
